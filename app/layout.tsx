@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ProductProvider } from './components/ApiContext';
+import NavBar from "./components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-red-500 text-black">
-        <ProductProvider> {children}</ProductProvider>
+      <body className="bg[#f6f6f6] bg-red-500 text-black">
+        <ProductProvider> 
+          <NavBar/>
+          {children}
+          </ProductProvider>
        
         
         </body>

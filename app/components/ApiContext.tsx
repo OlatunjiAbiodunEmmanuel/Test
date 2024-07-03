@@ -7,7 +7,7 @@ interface Product {
   Name: string;
   Description: string;
   Title: string;
-  Gender: number;
+  Gender: string;
   Retail:number;
   Image_1:string;
   Url:string;

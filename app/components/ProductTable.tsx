@@ -3,7 +3,15 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../components/ApiContext";
 import Image from "next/image";
-
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+  } from "@/components/ui/table"
+  
 const ProductTable = () => {
   const { products, loading } = useContext(ProductContext);
 
@@ -26,83 +34,88 @@ const ProductTable = () => {
   };
 
   return (
-    <table className="min-w-full divide-y divide-gray-200">
-      <thead className="bg-gray-50">
-        <tr className="">
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+    <Table className="">
+    <TableHeader className="bg-[#f9fafb] min-w-full">
+      <TableRow>
+        <TableHead className="px-2 text-xs font-medium"> <input type="checkbox" /></TableHead>
+        <TableHead className="px-2 text-xs font-medium">  S/N</TableHead>
+        <TableHead className="px-2 text-xs font-medium">Image</TableHead>
+        <TableHead className="px-2 text-xs font-medium">SKU</TableHead>
+        <TableHead className="px-2 text-xs font-medium">Name</TableHead>
+        <TableHead className="px-2 text-xs font-medium">Description</TableHead>
+        <TableHead className="px-2 text-xs font-medium">Title</TableHead>
+        <TableHead className="px-2 text-xs font-medium max-mdhidden">Gender</TableHead>
+        <TableHead className="px-2 text-xs font-medium max-mdhidden">Retail</TableHead>
+        <TableHead className="px-2 text-xs font-medium">Quantity</TableHead>
+        <TableHead className="px-2 text-xs font-medium">Size</TableHead>        
+      </TableRow>
+    </TableHeader>
+    <TableBody>
+    {products.map((product, index) => (
+          <TableRow key={product.SKU} className={``}>
+            <TableCell className="max-w-[250px] pl-2 pr-10 text-xs font-medium">
             <input type="checkbox" />
-          </th>
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            S/N
-          </th>
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Image
-          </th>
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            SKU
-          </th>
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Name
-          </th>
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Description
-          </th>
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Title
-          </th>
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Gender
-          </th>
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Retail
-          </th>
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Quantity
-          </th>
-          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Size
-          </th>
-          {/* <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Supplier</th> */}
-        </tr>
-      </thead>
-      <tbody className="bg-white divide-y divide-gray-200">
-        {products.map((product, index) => (
-          <tr key={product.SKU}>
-            <td className="px-4 text-xs py-4 whitespace-nowrap">
-              <input type="checkbox" />
-            </td>
-            <td className="px-4 text-xs py-4 whitespace-nowrap">{index + 1}</td>
-            <td className="px-4 text-xs py-4 whitespace-nowrap">
-              <Image
+            </TableCell>
+
+            <TableCell className={`pl-2 pr-10 font-semibold text-xs font-medium }`}>
+            {index + 1}
+            </TableCell>
+
+            <TableCell className="pl-2 pr-10 text-xs font-medium">
+            <Image
                 src={product.Image_1}
                 alt={product.Url}
-                width={30}
-                height={30}
+                width={50}
+                height={50}
               />
-            </td>
-            <td className="px-4 py-4 whitespace-nowrap">{product.SKU}</td>
-            <td className="px4 py-4 whitespace-nowrap break-words">{product.Name}</td>
-            <td className="px4 text-xs py-4 whitespace-nowrap">
-              <span title={product.Description}>
+            </TableCell>
+
+            <TableCell className="min-w-32 pl-2 pr-10 text-xs font-medium">
+            {product.SKU}
+            </TableCell>
+
+            <TableCell className="pl-2 pr-10 capitalize min-w-24 text-xs font-medium">
+            {product.Name}
+            </TableCell>
+
+            <TableCell className="pl-2 pr-10 max-mdhidden text-xs font-medium">
+            <span title={product.Description}>
                 {truncateDescription(product.Description, 3)}
               </span>
-            </td>
-            <td className="px-4 text-xs py-4 whitespace-nowrap">
-              {" "}
+            </TableCell>
+
+            <TableCell className="pl-2 pr-10 max-mdhidden text-xs font-medium">
+            {" "}
               <span title={product.Title}>
                 {truncateDescription(product.Title, 3)}
               </span>
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">{product.Gender}</td>
-            <td className="px-6 py-4 whitespace-nowrap">{product.Retail}</td>
-            <td className="px-6 py-4 whitespace-nowrap">{product.Quantity}</td>
-            <td className="px-6 py-4 whitespace-nowrap">{product.Size}</td>
-            {/* <td className="px-6 py-4 whitespace-nowrap">{product.price}</td> */}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
+            </TableCell>
+
+            <TableCell className="pl-2 pr-10 max-mdhidden text-xs font-medium">
+            {product.Gender}
+            </TableCell>
+
+            <TableCell className="pl-2 pr-10 max-mdhidden text-xs font-medium">
+            {product.Retail}
+            </TableCell>
+
+            <TableCell className="pl-2 pr-10 max-mdhidden text-xs font-medium">
+            {product.Quantity}
+            </TableCell>
+
+            <TableCell className="pl-2 pr-10 max-mdhidden text-xs font-medium">
+            {product.Size}
+            </TableCell>
+
+            <TableCell className="pl-2 pr-10 max-mdhidden text-xs font-medium">
+            {product.price}
+</TableCell>
+          </TableRow>
+          ))}
+ 
+    </TableBody>
+  </Table>
+      );
 };
 
 export default ProductTable;
