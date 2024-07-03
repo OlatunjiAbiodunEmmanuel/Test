@@ -13,7 +13,6 @@ interface Product {
   Url:string;
   Quantity:number;
   Size:number;
-//   supplier:string;
   price:number;
 }
 
