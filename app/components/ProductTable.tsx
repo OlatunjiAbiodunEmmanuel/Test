@@ -1,4 +1,4 @@
-"use client"; // Ensure this is treated as a client component
+"use client"; 
 
 import React, { useContext } from "react";
 import { ProductContext } from "../components/ApiContext";
@@ -7,10 +7,10 @@ import Image from "next/image";
 const ProductTable = () => {
   const { products, loading } = useContext(ProductContext);
 
-  console.log("Products:", products); // Log the products
+  console.log("Products:", products); 
 
   if (loading) {
-    return <div>Loading...</div>; // Show a loading message while data is being fetched
+    return <div>Loading...</div>; 
   }
 
   if (!Array.isArray(products)) {
