@@ -6,7 +6,7 @@ import icon from "./Images/Shape.png";
 
 const SearchIcon = () => {
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative items-center justify-center hidden md:flex">
       <Input
         type="text"
         placeholder="Search By Patients..."
