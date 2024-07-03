@@ -40,7 +40,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://3.88.1.181:8000/products/public/catalog?supplier=FragranceX&first=0&last=50');
+        const response = await fetch(process.env.NEXT_PUBLIC_API_URL as string);
         const data = await response.json();
         console.log('Fetched data:', data);
         if (Array.isArray(data)) {
