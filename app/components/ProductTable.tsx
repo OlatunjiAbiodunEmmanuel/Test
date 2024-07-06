@@ -38,10 +38,7 @@ const ProductTable = () => {
       <Table className="mb-10">
         <TableHeader className="bg-[#F0F4FE] min-w-full bg-yellow500 sticky top-0 z-10">
           <TableRow>
-            <TableHead className="px-4 py-2 text-xs font-medium">
-              <input type="checkbox" />
-            </TableHead>
-            <TableHead className="px-4 py-2 text-xs font-medium">S/N</TableHead>
+            <TableHead className="px-4 py-2 text-xs font-medium flex items-center justify-between gap2"><input type="checkbox" className="mr-2"/>S/N</TableHead>
             <TableHead className="px-4 py-2 text-xs font-medium">Image</TableHead>
             <TableHead className="px-4 py-2 text-xs font-medium">SKU</TableHead>
             <TableHead className="px-4 py-2 text-xs font-medium">Name</TableHead>
@@ -59,12 +56,10 @@ const ProductTable = () => {
         <TableBody className="min-w-full bg-[#FFFFFF] rounded-t-lg text-[#262626] text-xs leading-5 font-medium">
           {products.map((product, index) => (
             <TableRow key={product.SKU}>
-              <TableCell className="px-4 py-2 ">
-                <input type="checkbox" />
+              <TableCell className="px-4 py-2 flex items-center justifybetween">
+                <input type="checkbox" className="mr-2"/>{index + 1}
               </TableCell>
-              <TableCell className="px-4 py-2">
-                {index + 1}
-              </TableCell>
+
               <TableCell className="px-4 py-2">
                 <Image
                   src={product.Image_1}
