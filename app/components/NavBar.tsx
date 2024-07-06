@@ -8,7 +8,7 @@ import Hamburger from "./Hamburger";
 
 const NavBar = () => {
   return (
-    <nav className="flex items-center justify-between px-4 py-3">
+    <nav className="flex items-center justify-between px-4 py-3 bg-[#FFFFFF]">
       <div className="flex items-center justify-between gap-12">
         <Image src={logo} alt="Logo" width={206.4} height={56} />
         <SearchIcon />

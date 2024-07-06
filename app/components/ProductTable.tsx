@@ -56,8 +56,8 @@ const ProductTable = () => {
         <TableBody className="min-w-full bg-[#FFFFFF] rounded-t-lg text-[#262626] text-xs leading-5 font-medium">
           {products.map((product, index) => (
             <TableRow key={product.SKU}>
-              <TableCell className="px-4 py-2 flex items-center justifybetween">
-                <input type="checkbox" className="mr-2"/>{index + 1}
+              <TableCell className="px-4 py2 flex gap-2 leading-0">
+                <input type="checkbox" className=""/><span>{index + 1}.</span>
               </TableCell>
 
               <TableCell className="px-4 py-2">

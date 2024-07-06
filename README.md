@@ -19,5 +19,8 @@ Clone the repository:
 git clone 
 Install dependencies: npm install
 
+Create .env.local:
+NEXT_PUBLIC_API_URL=http://3.88.1.181:8000/products/public/catalog?supplier=FragranceX&first=0&last=50
+
 Start the development server: npm run dev
 
