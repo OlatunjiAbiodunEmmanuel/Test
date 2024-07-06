@@ -14,6 +14,7 @@ interface Product {
   Quantity:number;
   Size:number;
   price:number;
+  Brand:string;
 }
 
 interface ProductContextType {
